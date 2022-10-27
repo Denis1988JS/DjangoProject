@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="text-info text-center">Каталог товаров по группе {{category}}</h2>
+<div class="row">
+	<div class="col-md-12">
+		{% for g in goods %}
+		<div class="col-md-6 col-xs-12 col-sm-6 goodDiv">
+			<div class="panel panel-success">
+				<div class="panel-heading">
+					<h4 class="text-center"><a href="{{ g.get_absolute_url }}">{{g.nameOfGoods}}</a></h4>
+				</div>
+				<div class="panel-body">
+					<div class="media">
+						<span class="pull-left"><img class="media-object goodPhoto" src="{{ g.imageGoods.url }}"
+								alt="Нет фото"></span>
+						<div class="media-body">
+							<p>Цена: {{g.priceOfGoods}}</p>
+							<p>Категория: {{g.categoryGoods}}</p>
+							<p>Производитель: {{g.manufacturerOfGoods}}</p>
+							<p>Продавец: {{g.sellerGoods}}</p>
+						</div>
+					</div>
+				</div>
+				<div class="panel-footer">
+					<p>{{g.contexOfGoods}}</p>
+					<p>В продаже с: {{g.dateAppGoods}}</p>
+				</div>
+			</div>
+		</div>
+		{%  empty %}
+		<p>Товаров в данной категории нет в наличие</p>
+		{% endfor %}
+	</div>
+</div>
+<div class="col-md-12">
+	<div class="pagination">
+		<span class="step-links">
+			{% if page_obj.has_previous %}
+			<a href="?page=1">Первая</a>
+			<a href="?page={{ page_obj.previous_page_number }}">Предыдущая страница</a>
+			{% endif %}
+
+			<span class="current">
+				Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+			</span>
+
+			{% if page_obj.has_next %}
+			<a href="?page={{ page_obj.next_page_number }}">Следующая страница</a>
+			<a href="?page={{ page_obj.paginator.num_pages }}">Последняя страница</a>
+			{% endif %}
+		</span>
+	</div>
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="form-login">
+	<h2 class="text-center">Форма авторизации</h2>
+	<form method="POST" class="formLogin">
+		{% csrf_token%}
+		{% for f in form %}
+		<p>{{f.label_tag}}</p>
+		<p>{{f}}</p>
+		{% endfor %}
+		<button type="submit" class="btn btn-primary">Авторизоваться</button>
+	</form>
+</div>
+{% endblock content %}

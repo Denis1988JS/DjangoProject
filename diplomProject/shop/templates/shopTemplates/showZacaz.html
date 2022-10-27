@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+	<div class="col-md-12">
+		<div class="page-header">
+			<h1 class="text-center">Заказы от покупателей</h1>
+		</div>
+	</div>
+	<div class="col-md-12">
+		<div class="flexBasket">
+			<table class="table">
+				<caption>Таблица заказов </caption>
+				<thead>
+					<tr>
+						<th>Наименование</th>
+						<th>Кол-во в заказе</th>
+						<th>Цена за ед.</th>
+						<th>Сумма</th>
+						<th>Покупатель</th>
+					</tr>
+				</thead>
+				{% for i in basket %}
+				<tbody>
+					<tr>
+						<td>{{ i.goodsZacaz}}</td>
+						<td>{{ i.countGoods}}</td>
+						<td>{{ i.priceGoods}}</td>
+						<td>{{ i }}</td>
+						<td>{{ i.zakazGuman }}</td>
+					</tr>
+				</tbody>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+{% endblock content %}

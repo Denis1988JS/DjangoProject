@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<h4 class="text-center">{{good.nameOfGoods}}</h4>
+			</div>
+			<div class="panel-body">
+				<div class="media">
+					<span class="pull-left"><img class="media-object goodPhotoDetail" src="{{ good.imageGoods.url }}" alt="Нет фото"></span>
+					<div class="media-body">
+						<p>Цена: {{good.priceOfGoods}}</p>
+						<p>Категория: {{good.categoryGoods}}</p>
+						<p>Производитель: {{good.manufacturerOfGoods}}</p>
+						<p>Продавец: {{good.sellerGoods}}</p>
+						{% for group in request.user.groups.all %}
+							{% if group.name == 'Покупатели' %}
+						<div>
+							<form action="{% url 'mybasket' good.id  %}" method="POST">
+								{% csrf_token %}
+								{{form}}
+								<button type="submit" class="btn btn-success">Купить товар</button>
+							</form>
+						</div>
+							{% endif %}
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<p>{{good.contexOfGoods}}</p>
+				<p>В продаже с: {{good.dateAppGoods}}</p>
+				<div class="addComments">
+					{% for group in request.user.groups.all %}
+					{% if group.name == 'Покупатели' %}
+					<a href="{%  url 'createComments' good.id %}"><button class="btn btn-success">Добавить комментарий к товару</button></a>
+					{% else %}
+					<p>Для добавления комментария к товару - авторизуйтесь</p>
+					{% endif %}
+					{% endfor %}
+				</div>
+			</div>
+			<div class="comments">
+				<h3 class="text-center">Отзывы о товаре:</h3>
+				{% for c in comments %}
+				<div class="withComments">
+					<p>Комментарий от: {{c.user}}</p>
+					<p>{{c.contextComment}}</p>
+				</div>
+				{% empty %}
+				<div class="withComments">
+					<p>На данный момент отзывов о товаре нет.</p>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock content %}

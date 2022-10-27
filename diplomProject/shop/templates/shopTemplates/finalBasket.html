@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+	<div class="col-md-12">
+		<div class="page-header">
+			<h1 class="text-center">Корзина покупок</h1>
+		</div>
+	</div>
+	<div class="col-md-12">
+		<div class="flexBasket">
+			<table class="table">
+				<caption >Таблица заказа продавцам </caption>
+				<thead>
+				<tr>
+					<th>Наименование</th>
+					<th>Кол-во в заказе</th>
+					<th>Цена за ед.</th>
+					<th>Сумма</th>
+					<th>Продавец</th>
+					<th></th>
+				</tr>
+				</thead>
+				{% for i in basket %}
+				<tbody>
+					<tr>
+					<td>{{ i.goodsZacaz}}</td>
+					<td>{{ i.countGoods}}</td>
+					<td>{{ i.priceGoods}}</td>
+					<td>{{ i }}</td>
+					<td>{{ i.sellerUser }}</td>
+					<td><button class="btn btn-warning"><a href="delete/{{ i.id }}">Удалить</a></button></td>
+					</tr>
+				</tbody>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+{% endblock content %}

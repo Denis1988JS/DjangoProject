@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="col-md-12">
+    <h4 class="text-center">Создать комментарий к товару {{goods}}</h4>
+    <form action="#" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+
+        <button type="submit">Оставить комментарий</button>
+    </form>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h4 class="text-center">{{good.nameOfGoods}}</h4>
+            </div>
+            <div class="panel-body">
+                <div class="media">
+                    <span class="pull-left"><img class="media-object goodPhotoDetail" src="{{ good.imageGoods.url }}"
+                            alt="Нет фото"></span>
+                    <div class="media-body">
+                        <p>Цена: {{good.priceOfGoods}}</p>
+                        <p>Категория: {{good.categoryGoods}}</p>
+                        <p>Производитель: {{good.manufacturerOfGoods}}</p>
+                        <p>Продавец: {{good.sellerGoods}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <p>{{good.contexOfGoods}}</p>
+                <p>В продаже с: {{good.dateAppGoods}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

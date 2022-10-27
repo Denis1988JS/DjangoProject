@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col-md-12">
+	<h4 class="text-center">Редактирование товара {{goods}}</h4>
+	<form action="#" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		{% for i in form %}	
+			<p>{{i.label}}  {{i}} </p>
+		{% endfor %}
+		<button type="submit">Внести изменения</button>
+	</form>
+</div>
+
+
+
+{% endblock content %}

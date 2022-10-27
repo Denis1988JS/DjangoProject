@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for good in object_list %}
+<div class="col-md-6 col-xs-12 col-sm-6 goodDiv">
+	<div class="panel panel-success">
+		<div class="panel-heading">
+			<h4 class="text-center"><a href="{{ good.get_absolute_url }}">{{good.nameOfGoods}}</a></h4>
+		</div>
+		<div class="panel-body">
+			<div class="media">
+				<span class="pull-left"><img  class="media-object goodPhoto" src="{{ good.imageGoods.url }}" alt="Нет фото"></span>
+				<div class="media-body">
+				<p>Цена: {{good.priceOfGoods}}</p>
+				<p>Категория: {{good.categoryGoods}}</p>
+				<p>Производитель: {{good.manufacturerOfGoods}}</p>
+				<p>Продавец: {{good.sellerGoods}}</p>
+				</div>
+			</div>
+		</div>
+		<div class="panel-footer">
+			<p>{{good.contexOfGoods}}</p>
+			<p>В продаже с: {{good.dateAppGoods}}</p>
+		</div>
+	</div>
+</div>	
+{% endfor %}
+<div class="col-md-12">
+	<div class="pagination">
+		<span class="step-links">
+			{% if page_obj.has_previous %}
+			<a href="?page=1">Первая</a>
+			<a href="?page={{ page_obj.previous_page_number }}">Предыдущая страница</a>
+			{% endif %}
+
+			<span class="current">
+				Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+			</span>
+
+			{% if page_obj.has_next %}
+			<a href="?page={{ page_obj.next_page_number }}">Следующая страница</a>
+			<a href="?page={{ page_obj.paginator.num_pages }}">Последняя страница</a>
+			{% endif %}
+		</span>
+	</div>
+</div>
+{% endblock content %}

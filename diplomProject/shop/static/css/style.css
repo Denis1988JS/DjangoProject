@@ -1,0 +1,213 @@
+a:hover {
+	text-decoration: none;
+}
+.logo {
+	width: 100px;
+	height: auto;
+}
+.nav li {
+	font-weight: 700;
+	font-size: 18;
+}
+.navbar-header img:hover {
+	box-shadow: 0px 0px 29px 7px rgba(34, 60, 80, 0.13);
+}
+.goodPhoto  {
+	padding-top: 15px;
+	max-width: 150px;
+	max-height: 150px;
+}
+.goodDiv:hover {
+	box-shadow: 0px 0px 29px 7px rgba(34, 60, 80, 0.13);
+}
+.goodPhotoDetail {
+	width: 250px;
+
+}
+.panel-body {
+	min-height: 220px;
+}
+.panel-footer {
+	min-height: 120px;
+}
+.panel-heading {
+	min-height: 80px;
+}
+.formseach {
+	width: 50%;
+	border-radius: 5px;
+	padding: 11px 12px;
+	background-color: #428bca;
+	opacity: 0.8;
+	border: 1px solid gainsboro;
+	color: rgb(255, 255, 255);
+	font-size: 15px;
+}
+.formseach::placeholder {
+	color: rgb(255, 255, 255);
+}
+.seachBlock {
+	margin-top: 25px;
+	margin-bottom: 45px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.formLogin input {
+	width: 50%;
+	padding: 7px 4px;
+	border-radius: 13px;
+}
+#id_password, #id_username {
+	display: block;
+	width: 100%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.428571429;
+	color: #555;
+	vertical-align: middle;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+	box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+	-webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+#id_nameOfGoods,
+#id_priceOfGoods,
+#id_manufacturerOfGoods,
+#id_imageGoods,
+#id_categoryGoods
+
+{
+	display: block;
+	width: 100%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.428571429;
+	color: #555;
+	vertical-align: middle;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+	box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+	-webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+
+
+
+.divGood {
+	display: flex;
+	justify-content:space-around;
+	align-items: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: rgb(216, 215, 214);
+	margin-top: 15px;
+	border-radius: 10px;
+}
+.divGood p {
+	margin-left: 5px;
+}
+.divGood img {
+	max-width: 70px;
+	height: auto;
+}
+.formInput input {
+	width: 50%;
+}
+.blockAbout {
+	margin-top: 25px;
+}
+.addGoods input {
+	display: block;
+	width: 100%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.428571429;
+	color: #555;
+	vertical-align: middle;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+	box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+	-webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.withComments {
+	width: 100%;
+	padding: 10px 25px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	background-color: #ccc;
+}
+
+.goodsPanel {
+	border: 1px solid gainsboro;
+	border-radius: 13px;
+	background-color: rgb(204, 204, 204);
+	margin: 15px 0px;
+	min-height: 250px;
+	max-height: 250px;
+}
+
+.goodsPanel:hover {
+	background-color: orange;
+}
+.rowGoods {
+	background-color: #dff0d8;
+}
+
+
+/*таблица в корзине--------------------------------------------*/
+.table {
+	width: 100%;
+	margin-bottom: 20px;
+	border: 5px solid #fff;
+	border-top: 5px solid #fff;
+	border-bottom: 3px solid #fff;
+	border-collapse: collapse;
+	outline: 3px solid #ffd300;
+	font-size: 15px;
+	background: #fff !important;
+}
+
+.table th {
+	font-weight: bold;
+	padding: 7px;
+	background: #ffd300;
+	border: none;
+	text-align: left;
+	font-size: 15px;
+	border-top: 3px solid #fff;
+	border-bottom: 3px solid #ffd300;
+}
+
+.table td {
+	padding: 7px;
+	border: none;
+	border-top: 3px solid #fff;
+	border-bottom: 3px solid #fff;
+	font-size: 15px;
+}
+
+.table tbody tr:nth-child(even) {
+	background: #f8f8f8 !important;
+}
+caption {
+	margin: 25px auto;
+	font-size: 18px;
+}
+/*---------------------------------*/

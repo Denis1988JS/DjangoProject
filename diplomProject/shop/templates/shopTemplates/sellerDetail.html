@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="text-center">Личный кабинет пользователя {{user.get_username}}</h2>
+<div class="row">
+	<div class="col-md-12">
+		{% if user.is_authenticated %}
+		<p>Личный кабинет пользователя {{user.username}}</p>
+		<p>{{userName1}}</p>
+		<p>Номер id {{user.id}}</p>
+		<p>Группа {{ user.groups.all.0 }}</p>
+		{% endif %}
+	</div>
+</div>
+{% for group in request.user.groups.all %}
+	{% if group.name == 'Продавцы' %}
+<div class="sallerMan">
+	<p><a href="{% url 'showZakaz' %}">Заказы от покупателей</a></p>
+	<p><a href="{% url 'addGood' %}">Добавить новый товар в ВАШ каталог</a></p>
+	<h4 class="text-center text-success">Ваши товары в каталоге</h4>
+	<div class="col-md-12">
+	{% for i in object_list %}
+	<div class="divGood">
+	<p>Номер: {{i.id}}</p>
+	<p>Название: {{i.nameOfGoods}}</p>
+	<p>Цена: {{i.priceOfGoods}}</p>
+	<p><img src="{{ i.imageGoods.url }}" alt="Фото товара"></p>
+	<div class="withLink">
+		<p><a href="editGoods/{{ i.id }}">Изменить товар</a></p>
+		<p><a href="delete/{{ i.id }}">Удалить товар</a></p>
+	</div>
+	</div>
+	{% empty %}
+	<p>Товаров нет</p>
+	</div>
+	{% endfor %}
+</div>
+	{% endif %}
+{% endfor %}
+{% endblock content %}

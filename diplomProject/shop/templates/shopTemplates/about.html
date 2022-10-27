@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-center">Региональная площадка интернет-торговли SellAndBuy</h1>
+<div class="blockAbout">
+<p>
+	"SellAndBuy" - полносервисная торговая платформа для продавцов и покупателей.
+	На данный момент уже более {{goodsCount}} товаров по  {{catCount}} категориям!!!
+</p>
+<p>С нами работают уже более {{userGroup}} продавцов </p>
+<p>Плюсы работы с нами:</p>
+<ul class="list-group">
+	<li class="list-group-item">Продавцу
+		<ul>
+			<li>Можете предоставить весь ваш ассортимент</li>
+			<li>Минимальные затраты на продвижение товара</li>
+			<li>Неограниченный объем на товарные позиции</li>
+		</ul>
+	</li>
+	<li class="list-group-item">Покупателю
+		<ul>
+			<li>Огромный выбор продукции</li>
+			<li>Оптовые цены</li>
+		</ul>
+	</li>
+</ul>
+<div class="contactInfo">
+	<h4 class="text-center text-info">Контактная информация</h4>
+	<address id="adr">Компания <strong>ООО "SellAndBuy" </strong>г.Новосибирск ул.Новосибирская 130 оф.13</address><br>
+	<ul class="list-group">Контактные телефоны
+		<li class="list-group-item">Секретарь  <a href="tel:+71234567890"> 8-(123)-456-78-90</a></li>
+		<li class="list-group-item">Бухгалтерия  <a href="tel:+71234567890"> 8-(123)-456-78-99</a></li>
+		<li class="list-group-item">Отдел маркетинга  <a href="tel:+71234567890"> 8-(123)-456-88-99</a></li>
+		<li class="list-group-item">Отдел IT-разработки и сопровождения  <a href="tel:+71234567890"> 8-(123)-456-99-99</a></li>
+	</ul>
+	<ul class="list-group">Адрес электронной почты
+		<li class="list-group-item"><a href="mailto:selltobuy@seller.ru">selltobuy@seller.ru</a></li>
+	</ul>
+</div>
+
+</div>
+{% endblock content %}

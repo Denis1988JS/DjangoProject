@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3 class="text-center">Добавление товара в каталог</h3>
+<form action="#" method="post" enctype="multipart/form-data" class="addGoods">
+	{% csrf_token %}
+	{% for i in form %}
+	<div><p>{{i.label}}</p>  <p>{{i}}</p></div>
+	{% endfor %}
+	<button type="submit">Добавить в каталог</button>
+</form>
+
+{% endblock content %}

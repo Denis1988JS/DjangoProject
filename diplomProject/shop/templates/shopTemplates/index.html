@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+	<div class="col-md-12">
+		<div class="seach">
+		<h2 class="text-center text-info">Поиск по каталогам</h2>
+			<form action="{% url 'rezultSeach' %}" method="get" class="form-inline" role="form" autocomplete="off">
+			{% csrf_token %}
+			<div class="seachBlock">
+			{{formSeach}}
+			<button type="submit" class="btn btn-primary btn-lg ">Поиск товара</button>
+			</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+	{% for c in listCategory %}
+	<div class="row rowGoods">
+	<div class="col-md-4"><h3>{{ c.nameOfCategory }}</h3></div>
+	<div class="col-md-12 lineDiv"><hr></div>
+	</div>
+	<div class="row rowFlex">
+		{% for el in c.goods_set.all %}
+
+		<div class="col-md-4 col-sm-6 goodsPanel">
+			<a href="{{ el.get_absolute_url }}">
+			<p ><img src="{{ el.imageGoods.url }}" alt="Фото товара" class="media-object goodPhoto"></p>
+			<p class="text-success">{{ el.nameOfGoods }}</p>
+			<p class="text-success">{{ el.priceOfGoods }} рублей</p>	
+			</a>
+		</div>
+
+		{% endfor %}
+		
+
+	</div>
+	{% endfor %}
+	</div>
+</div>
+
+{% endblock content %}
