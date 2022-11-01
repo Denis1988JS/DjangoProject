@@ -44,7 +44,7 @@ class CreateComments(forms.ModelForm):
         model = CommentsOfGoods
         fields = ['contextComment']
         widgets = {
-            'contextComment': forms.Textarea(attrs={'cols':30, 'rows':10})
+            'contextComment': forms.Textarea(attrs={'rows':10,'class': 'form-control'})
         }
 
 #Форма для заказа

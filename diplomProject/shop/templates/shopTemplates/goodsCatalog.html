@@ -4,9 +4,10 @@
 
 {% for good in object_list %}
 <div class="col-md-6 col-xs-12 col-sm-6 goodDiv">
+	<a href="{{ good.get_absolute_url }}">
 	<div class="panel panel-success">
 		<div class="panel-heading">
-			<h4 class="text-center"><a href="{{ good.get_absolute_url }}">{{good.nameOfGoods}}</a></h4>
+			<h4 class="text-center">{{good.nameOfGoods}}</h4>
 		</div>
 		<div class="panel-body">
 			<div class="media">
@@ -24,6 +25,7 @@
 			<p>В продаже с: {{good.dateAppGoods}}</p>
 		</div>
 	</div>
+	</a>
 </div>	
 {% endfor %}
 <div class="col-md-12">

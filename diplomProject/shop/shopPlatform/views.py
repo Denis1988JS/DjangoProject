@@ -18,6 +18,7 @@ from django.conf import settings
 listCategory = []
 #Представление главной страницы
 def index(request):
+    title = 'SellAndBuy'
     if request.method == "POST":
         formSeach =  SeachGoods()
         if formSeach.is_valid():
@@ -26,7 +27,7 @@ def index(request):
         formSeach = SeachGoods()
         listCategory = CategoryOfGoods.objects.all()
         good = Goods.objects.all()
-        data = {'listCategory': listCategory,'formSeach':formSeach}
+        data = {'listCategory': listCategory,'formSeach':formSeach, 'title':title}
 
     return render(request, 'shopTemplates/index.html', context=data)
 
@@ -38,6 +39,7 @@ class GoodsListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['listCategory'] = CategoryOfGoods.objects.all()
+        context['title'] = 'Каталог товаров'
         return context
 
 #Представление по товарно
@@ -77,6 +79,7 @@ class FinalBasket(ListView):
         userName = self.request.user
         context['listCategory'] = CategoryOfGoods.objects.all()
         context['basket'] = Basket.objects.filter(zakazGuman=userName)
+        context['title'] = 'Корзина покупок'
         return context
 
 #Удаление товар из корзины
@@ -135,12 +138,13 @@ class AboutList(ListView):
         context['catCount'] = CategoryOfGoods.objects.all().count
         context['goodsCount'] = Goods.objects.all().count
         context['users'] = User.objects.all()
+        context['title'] = 'О нас'
         context['userGroup'] = User.objects.filter(groups__id=1).count()
         return context
 
 #Регистрация пользователя
 def register(request):
-    data = {}
+    data = {'title':'Регистрация'}
     if request.method == 'POST':
         form = RegistForm(request.POST)
         user = form.save()
@@ -164,6 +168,7 @@ class UserCabinet(ListView):
         object_list = Goods.objects.filter(sellerGoods=userName_1)
         context['NewGoods'] = NewGoods()
         context['object_list'] = object_list
+        context['title'] = 'Личный кабинет'
         context['userGroup'] = self.request.user.groups.all()
         return context
 
@@ -219,6 +224,7 @@ def delGoods(request, id):
 #Добавление комментария
 def commentGoods(request, id):
     goods = Goods.objects.get(id=id)
+    title = 'Комментарий к товару'
     if request.method == 'POST':
         form = CreateComments(request.POST)
         if form.is_valid():
@@ -230,7 +236,7 @@ def commentGoods(request, id):
             return redirect('listCatalog')
     else:
         form = CreateComments()
-    data = {'good': goods, 'form': form}
+    data = {'good': goods, 'form': form, 'title':title}
     return render(request, 'shopTemplates/createComments.html', context=data)
 
 
